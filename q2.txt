@@ -1,0 +1,46 @@
+## Experiment 8 — Question 2
+
+### Inter-Network Communication Using Router (CLI Configuration)
+
+**Objective**
+To design and configure a network consisting of multiple LAN segments connected through a router and verify communication between different subnets.
+
+**Topology Description**
+Four PCs were divided into two Local Area Networks (LANs).
+Each LAN was connected to a switch, and both switches were connected to separate GigabitEthernet interfaces of a router.
+The router acts as a Layer-3 device enabling communication between the two networks.
+
+**IP Addressing Scheme**
+
+**Network-1 (Router Interface Gi0/0)**
+
+* Router Gi0/0 → 10.0.0.1 /24
+* PC0 → 10.0.0.2 /24 (Default Gateway: 10.0.0.1)
+* PC1 → 10.0.0.3 /24 (Default Gateway: 10.0.0.1)
+
+**Network-2 (Router Interface Gi0/1)**
+
+* Router Gi0/1 → 20.0.0.1 /24
+* PC2 → 20.0.0.2 /24 (Default Gateway: 20.0.0.1)
+* PC3 → 20.0.0.3 /24 (Default Gateway: 20.0.0.1)
+
+**Router Configuration (CLI Commands Used)**
+
+* Entered privileged EXEC mode using `enable`
+* Entered global configuration mode using `configure terminal`
+* Configured router interfaces with IP addresses
+* Activated interfaces using `no shutdown` command
+* Exited configuration mode using `end`
+
+This configuration enabled the router interfaces to transition from **administratively down** to **operational up state**, allowing packet forwarding between networks.
+
+**Verification and Testing**
+Connectivity was verified using the `ping` command from PCs in Network-1 to PCs in Network-2.
+Successful ICMP echo replies confirmed proper routing and correct default gateway configuration.
+
+**Result**
+Inter-network communication between two different subnets was successfully established using router interface configuration through Command Line Interface (CLI).
+
+**Conclusion**
+The experiment demonstrated practical implementation of Layer-3 routing concepts, including subnetting, gateway configuration, and interface activation.
+The router effectively performed packet forwarding between multiple LAN segments, validating the designed network topology.
